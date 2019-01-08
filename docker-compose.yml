@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+    lastfms:
+        container_name: lastfms
+        build: .
+        image: lastfms
+        environment:
+            TZ: "Europe/Kiev"
+        working_dir: '/app'
+        volumes:
+            - "${PWD}/data:/app/data"
+        restart: always

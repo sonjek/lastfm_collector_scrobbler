@@ -1,0 +1,10 @@
+*.pyc
+__pycache__
+
+data/config.ini
+
+.idea
+venv
+
+logs
+*.log
