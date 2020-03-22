@@ -1,4 +1,8 @@
-# lastfm_collector_scrobbler
+lastfm_collector_scrobbler
+======================
+
+[![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/) [![GitHub tag](https://img.shields.io/github/tag/sonjek/lastfm_collector_scrobbler.svg)](https://github.com/sonjek/lastfm_collector_scrobbler/tags/) [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 
 ## Overview
 
@@ -7,7 +11,7 @@ It allows collect artist tracks from their albums to txt files and scrobble from
 
 
 Initial setup
-------------------
+-------------
 ```bash
 $ git clone https://github.com/sonjek/lastfm_collector_scrobbler.git
 $ cd lastfm_collector_scrobbler
@@ -27,7 +31,7 @@ More info in https://www.last.fm/ru/api/authentication
 
 
 Usage
-------------------
+-----
 
 Built in help:
 ```bash
