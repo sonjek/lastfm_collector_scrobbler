@@ -204,10 +204,17 @@ def create_artist_file(artist: str, limit: int):
     last_fm = auth()
     trucks = 0
 
+    album_excludes = parce_config()["SYSTEM"]["album_excludes"]
+    list_album_excludes = [s.replace("'", "") for s in album_excludes.split(',')]
+
     albums = get_artist_albums(artist, limit, last_fm)
     for idx, album in enumerate(albums):
         album_title = album.item.title.replace("'", "").replace("(null)", "")
         if not album_title:
+            continue
+
+        if any(ext in album_title for ext in list_album_excludes):
+            click.echo(click.style(f"Ignore album: ", fg="green") + click.style(album_title, fg="cyan"))
             continue
 
         click.echo(click.style(f"\n{idx+1} Album: ", fg="green") + click.style(album_title, fg="cyan"))
