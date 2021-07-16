@@ -2,6 +2,7 @@
 __pycache__
 
 data/config.ini
+data/playlist
 
 .idea
 venv
