@@ -30,6 +30,13 @@ _________________________________________________________________________
 More info in https://www.last.fm/ru/api/authentication
 
 
+Rebuild
+-------------
+```bash
+$ docker-compose down -v --remove-orphans && docker-compose build
+```
+
+
 Usage
 -----
 
