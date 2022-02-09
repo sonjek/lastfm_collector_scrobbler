@@ -5,6 +5,7 @@
 from datetime import datetime, timedelta
 import time
 from os import path
+import random
 import click
 
 
@@ -17,7 +18,7 @@ def prepate_old_date(duration=None, date_time=None):
     Allow fast scrobble for past days
     """
 
-    new_duration = int(duration / 2) if int(duration / 2) > 15 else 15
+    new_duration = int(duration / 2) + random.randint(4, 10) if int(duration / 2) > 60 else duration
 
     """ Normal scrobble"""
     if not date_time:
