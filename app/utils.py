@@ -37,7 +37,7 @@ def prepate_old_date(duration=None, date_time=None):
 
 
 def prepare_duration(duration=40000):
-    return int(duration / 1000) if duration > 1000 else 40
+    return int(duration / 1000) if duration > 1000 else duration
 
 
 def check_date_from_future(date_time):
