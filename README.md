@@ -93,7 +93,7 @@ $ docker-compose run --rm --name lastfms lastfms scrobble data/playlist/Rob_Zomb
 (4/598)	[2019-01-07 12:04:22]	0:15(1:50) ||||||     | 51%    Rob Zombie - Superbeast (Hellbilly Deluxe)
 ```
 
-Start demonized Docker container for loop shuddled track list scrobbling from Rob_Zombie.txt file:
+Start demonized Docker container for loop shuffled track list scrobbling from Rob_Zombie.txt file:
 ```bash
 $ docker-compose run -d --restart always --name lastfms lastfms scrobble data/playlist/Rob_Zombie.txt --infinite
 lastfms
@@ -104,11 +104,12 @@ $ docker logs -f --tail 10 lastfms
 (3/598)	[2019-01-07 12:13:59]	0:20 |||||||||||| 100%   Rob Zombie - Demon Speeding (Album Version) (Past, Present & Future [Explicit])
 ```
 
-More options:
+More scrobble options:
 ```bash
 $ docker-compose run --rm --name lastfms lastfms scrobble -h
 Usage: app.py scrobble [OPTIONS] FILENAME
-  Scrobbe tracks from file.
+
+  Scrobble tracks from file.
 
 Options:
   --runs INTEGER              Scrobble from file N times.

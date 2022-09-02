@@ -18,6 +18,7 @@ from dateutil import parser
 from configparser import ConfigParser
 from console_progressbar import ProgressBar
 from random import shuffle
+import random
 from pathlib import Path
 import glob
 import os
@@ -166,7 +167,7 @@ def cli(verbose: bool):
         click.echo(click.style("Debug mode is: ", fg="green") + 'ON')
 
 
-@cli.command(short_help="Scrobble tracks from file.", help="Scrobbe tracks from file.")
+@cli.command(short_help="Scrobble tracks from file.", help="Scrobble tracks from file.")
 @click.argument("filename", required=True, type=click.Path(exists=True))
 @click.option("runs", "--runs", type=click.INT, default=1, help="Scrobble from file N times.")
 @click.option("infinite", "--infinite/--no-infinite", default=False, help="Infinite scrobble from file.")
@@ -185,15 +186,28 @@ def scrobble(filename: str, runs: int, infinite: bool, shuffle_rows: bool, silen
             if shuffle_rows:
                 shuffle(lines)
 
-            iterate = enumerate(lines) if not infinite else enumerate(itertools.cycle(lines))
-            for idx, line in iterate:
-                start_scrobble_track(
-                    last_fm,
-                    *utils.split_artist_track(line.strip()),
-                    f"{idx + 1}/{len(lines)}" if runs < 2 else f"{idx + 1}/{len(lines)}({run}/{runs})",
-                    None if not date else parser.parse(date),
-                    silent
-                )
+            if not infinite:
+                iterate = enumerate(lines)
+                for idx, line in iterate:
+                    start_scrobble_track(
+                        last_fm,
+                        *utils.split_artist_track(line.strip()),
+                        f"{idx + 1}/{len(lines)}" if runs < 2 else f"{idx + 1}/{len(lines)}({run}/{runs})",
+                        None if not date else parser.parse(date),
+                        silent
+                    )
+            else:
+                idx = 0
+                while True:
+                    line = random.choice(lines)
+                    idx += 1
+                    start_scrobble_track(
+                        last_fm,
+                        *utils.split_artist_track(line.strip()),
+                        f"{idx}/{len(lines)}" if runs < 2 else f"{idx}/{len(lines)}({run}/{runs})",
+                        None if not date else parser.parse(date),
+                        silent
+                    )
 
 
 @cli.command(short_help="Artist name")
