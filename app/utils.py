@@ -36,7 +36,9 @@ def prepate_old_date(duration=None, date_time=None):
     return old_datetime, new_duration, 15
 
 
-def prepare_duration(duration=40000):
+def prepare_duration(duration=124000):
+    if duration < 0 or not duration:
+        duration = 124000
     return int(duration / 1000) if duration > 1000 else duration
 
 
