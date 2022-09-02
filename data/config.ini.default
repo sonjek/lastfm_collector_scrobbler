@@ -7,4 +7,4 @@ username =
 password_hash = 
 
 [SYSTEM]
-album_excludes = 'Special Edition', 'Promo Only', 'Explicit', 'CDS', ' OST', ' CDM', 'Bonus Disc', 'Bonus Tracks', 'Original Soundtrack', 'Clean', 'CD1', 'CD2', 'CD3', 'CD 1', 'CD 2', 'CD 3', 'Disc 1', 'Disc 2', 'Disc 3'
+album_excludes = 'Special Edition', 'Promo Only', 'Explicit', [Explicit], 'CDS', ' OST', ' CDM', 'Bonus Disc', 'Bonus Tracks', 'Original Soundtrack', 'Clean', 'CD1', 'CD2', 'CD3', 'CD 1', 'CD 2', 'CD 3', 'Disc 1', 'Disc 2', 'Disc 3', [Disc 1], [Disc 2], [Disc 3], [Disc 4], (Split)
