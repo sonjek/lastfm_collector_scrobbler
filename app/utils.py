@@ -15,16 +15,16 @@ updated = False
 
 def prepate_old_date(duration=None, date_time=None):
     """
-    Allow fast scrobble for past days
+    Allow fast scrobble by reduced duration of track
     """
-
-    new_duration = int(duration / 2) + random.randint(4, 10) if int(duration / 2) > 60 else duration
+    reduced_duration = int(duration * 0.6)
+    new_duration = reduced_duration + random.randint(4, 10) if reduced_duration > 90 else duration
 
     """ Normal scrobble"""
     if not date_time:
         return datetime.now(), new_duration, new_duration
 
-    """ Fast scrobble"""
+    """ Fast scrobble (for past time)"""
     global old_datetime
     global updated
     if not updated:
